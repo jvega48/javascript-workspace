@@ -1,5 +1,10 @@
-var http = require('http');
+const express = require('express');
+const app = express();
 
-http.createServer(function (request,response){
+app.use(express.static(__dirname, + 'index.html'));
 
-}).listen(process.env.PORT)
+app.get('index.html', function(request,response){
+	console.log('I got the get request.');
+})
+
+app.listen(process.env.PORT);
